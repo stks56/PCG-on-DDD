@@ -5,10 +5,13 @@ import (
 
 	"github.com/labstack/echo/v4"
 
+	"stks56/PCG-onDDD/app/infrastructure"
 	"stks56/PCG-onDDD/app/presentation/controller"
 )
 
 func main() {
+	infrastructure.InitDB()
+
 	e := echo.New()
 	e.GET("/", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Hello World!")
