@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  api:
+    build: .
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/PCG-on-DDD
+    ports:
+      - "1323:1323"
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: pcg-on-ddd
+      MYSQL_USER: pcg-on-ddd
+      MYSQL_PASSWORD: pcg-on-ddd
+      MYSQL_ROOT_PASSWORD: root
+      TZ: 'Asia/Tokyo'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - db-data:/var/lib/mysql:cached
+    ports:
+      - 3306:3306
+volumes:
+  db-data:
+    driver: local
