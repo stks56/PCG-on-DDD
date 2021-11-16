@@ -17,7 +17,7 @@ func main() {
 	info := e.Group("/info")
 	{
 		card := controller.CardController{}
-		info.GET("/card", card.Show())
+		info.GET("/card/:id", card.Show())
 	}
 
 	e.Logger.Fatal(e.Start(":1323"))
