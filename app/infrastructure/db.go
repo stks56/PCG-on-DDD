@@ -2,6 +2,7 @@ package infrastructure
 
 import (
 	"fmt"
+	"stks56/PCG-onDDD/app/infrastructure/dto"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -22,4 +23,10 @@ func InitDB() {
 	if err != nil {
 		fmt.Println("Failed init DB: ", err)
 	}
+
+	migrate()
+}
+
+func migrate() {
+	db.AutoMigrate(&dto.Card{})
 }
