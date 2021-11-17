@@ -21,6 +21,9 @@ func main() {
 	{
 		card := controller.CardController{}
 		info.GET("/card/:id", card.Show())
+
+		field := controller.FieldController{}
+		info.GET("/field", field.Show())
 	}
 
 	e.Logger.Fatal(e.Start(":1323"))
