@@ -1,4 +1,4 @@
-module stks56/PCG-onDDD
+module stks56/PCG-on-DDD
 
 go 1.17
 

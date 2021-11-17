@@ -5,8 +5,8 @@ import (
 
 	"github.com/labstack/echo/v4"
 
-	"stks56/PCG-onDDD/app/infrastructure"
-	"stks56/PCG-onDDD/app/presentation/controller"
+	"stks56/PCG-on-DDD/app/infrastructure"
+	"stks56/PCG-on-DDD/app/presentation/controller"
 )
 
 func main() {

@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"stks56/PCG-onDDD/app/infrastructure/repository"
+	"stks56/PCG-on-DDD/app/infrastructure/repository"
 
 	"github.com/labstack/echo/v4"
 )

@@ -2,7 +2,7 @@ package infrastructure
 
 import (
 	"fmt"
-	"stks56/PCG-onDDD/app/infrastructure/dto"
+	"stks56/PCG-on-DDD/app/infrastructure/dto"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

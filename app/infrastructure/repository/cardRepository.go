@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"stks56/PCG-onDDD/app/domain/model"
-	"stks56/PCG-onDDD/app/domain/repository"
+	"stks56/PCG-on-DDD/app/domain/model"
+	"stks56/PCG-on-DDD/app/domain/repository"
 )
 
 type cardRepository struct{}
