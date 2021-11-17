@@ -3,6 +3,7 @@ package infrastructure
 import (
 	"fmt"
 	"stks56/PCG-on-DDD/app/infrastructure/dto"
+	"stks56/PCG-on-DDD/app/infrastructure/seed"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -25,8 +26,13 @@ func InitDB() {
 	}
 
 	migrate()
+	importSeed()
 }
 
 func migrate() {
 	db.AutoMigrate(&dto.Card{})
+}
+
+func importSeed() {
+	db.Create(&seed.Cards)
 }
