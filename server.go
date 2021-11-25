@@ -26,5 +26,11 @@ func main() {
 		info.GET("/field", field.Show())
 	}
 
+	game := e.Group("/game")
+	{
+		gamectrl = controller.GameControlller{}
+		game.POST("/start", gamectrl.Start())
+	}
+
 	e.Logger.Fatal(e.Start(":1323"))
 }
