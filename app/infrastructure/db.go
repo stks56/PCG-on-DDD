@@ -30,7 +30,15 @@ func InitDB() {
 }
 
 func migrate() {
-	db.AutoMigrate(&dto.Card{})
+	db.AutoMigrate(
+		&dto.Card{},
+		&dto.Field{},
+		&dto.BattleField{},
+		&dto.Bench{},
+		&dto.Side{},
+		&dto.Trash{},
+		&dto.Hand{},
+	)
 }
 
 func importSeed() {
