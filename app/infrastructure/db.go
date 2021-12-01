@@ -32,7 +32,9 @@ func InitDB() {
 func migrate() {
 	db.AutoMigrate(
 		&dto.Card{},
+		&dto.Game{},
 		&dto.Field{},
+		&dto.GameCard{},
 		&dto.BattleField{},
 		&dto.Bench{},
 		&dto.Side{},

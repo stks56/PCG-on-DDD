@@ -2,6 +2,7 @@ package dto
 
 type Field struct {
 	Id          uint `gorm:"primaryKey"`
+	GameId      uint
 	Deck        Deck
 	BattleField BattleField
 	Bench       Bench
@@ -11,7 +12,9 @@ type Field struct {
 }
 
 type Deck struct {
-	FieldId uint
+	Id        uint
+	FieldId   uint
+	GameCards []GameCard
 }
 
 type BattleField struct {
@@ -32,4 +35,9 @@ type Trash struct {
 
 type Hand struct {
 	FieldId uint
+}
+
+type GameCard struct {
+	DeckId uint
+	CardId uint
 }
