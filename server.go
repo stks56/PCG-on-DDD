@@ -28,8 +28,8 @@ func main() {
 
 	game := e.Group("/game")
 	{
-		gamectrl = controller.GameControlller{}
-		game.POST("/start", gamectrl.Start())
+		gameCtrl := controller.GameControlller{}
+		game.POST("/start", gameCtrl.Start())
 	}
 
 	e.Logger.Fatal(e.Start(":1323"))
