@@ -19,11 +19,11 @@ func main() {
 
 	info := e.Group("/info")
 	{
-		card := controller.CardController{}
-		info.GET("/card/:id", card.Show())
+		cardCtrl := controller.CardController{}
+		info.GET("/card/:id", cardCtrl.Show())
 
-		field := controller.FieldController{}
-		info.GET("/field", field.Show())
+		fieldCtrl := controller.FieldController{}
+		info.GET("/field", fieldCtrl.Show())
 	}
 
 	game := e.Group("/game")
