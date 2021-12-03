@@ -18,7 +18,7 @@ func (cc CardController) Show() echo.HandlerFunc {
 
 		card, err := cr.GetByID(id)
 		if err != nil {
-			panic("error")
+			c.JSON(http.StatusNotFound, "Not Found Record")
 		}
 
 		return c.JSON(http.StatusOK, card)

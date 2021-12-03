@@ -14,7 +14,7 @@ func (fc FieldController) Show() echo.HandlerFunc {
 		fr := repository.NewFieldRepository()
 		field, err := fr.Get()
 		if err != nil {
-			panic("error")
+			c.JSON(http.StatusNotFound, "Not Found Record")
 		}
 
 		return c.JSON(http.StatusOK, field)
