@@ -21,15 +21,15 @@ func main() {
 	{
 		cardCtrl := controller.CardController{}
 		info.GET("/card/:id", cardCtrl.Show())
-
-		fieldCtrl := controller.FieldController{}
-		info.GET("/field", fieldCtrl.Show())
 	}
 
 	game := e.Group("/game")
 	{
 		gameCtrl := controller.GameControlller{}
 		game.POST("/start", gameCtrl.Start())
+
+		fieldCtrl := controller.FieldController{}
+		game.GET("/field", fieldCtrl.Show())
 	}
 
 	e.Logger.Fatal(e.Start(":1323"))
