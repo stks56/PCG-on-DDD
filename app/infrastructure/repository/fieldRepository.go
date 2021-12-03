@@ -4,6 +4,7 @@ import (
 	"stks56/PCG-on-DDD/app/domain/model"
 	"stks56/PCG-on-DDD/app/domain/repository"
 	"stks56/PCG-on-DDD/app/infrastructure"
+	"stks56/PCG-on-DDD/app/infrastructure/dto"
 
 	"gorm.io/gorm"
 )
@@ -18,4 +19,11 @@ func NewFieldRepository() repository.FieldRepository {
 	}
 }
 
-func (fr *fieldRepository) Get() (*model.Field, error) {}
+func (fr *fieldRepository) Get() (*model.Field, error) {
+	dto := &dto.Field{Deck: dto.Deck{}}
+	fr.db.First(dto)
+
+	return &model.Field{
+		Deck: &model.Deck{},
+	}, nil
+}
