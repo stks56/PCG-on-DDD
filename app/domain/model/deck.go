@@ -1,5 +1,9 @@
 package model
 
+import (
+	"math/rand"
+)
+
 type Deck struct {
 	Cards *[60]Card
 }
@@ -12,4 +16,13 @@ func NewPresetDeck() *Deck {
 	return &Deck{
 		Cards: (*[60]Card)(&cards),
 	}
+}
+
+func (deck *Deck) Shuffle(seed int64) {
+	var shuffledCards [60]Card
+	rand.Seed(seed)
+	rand.Shuffle(len(deck.Cards), func(i, j int) {
+		shuffledCards[i], shuffledCards[j] = deck.Cards[j], deck.Cards[i]
+	})
+	deck.Cards = &shuffledCards
 }
