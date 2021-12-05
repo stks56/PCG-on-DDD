@@ -8,7 +8,7 @@ type Field struct {
 	Bench       Bench
 	Side        Side
 	Trash       Trash
-	Hand        Hand
+	Hand        []Hand
 }
 
 type Deck struct {
@@ -35,6 +35,7 @@ type Trash struct {
 
 type Hand struct {
 	FieldId uint
+	CardId  uint
 }
 
 type GameCard struct {

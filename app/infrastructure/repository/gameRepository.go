@@ -28,15 +28,25 @@ func (gr *gameRepository) Insert(game *model.Game) error {
 	for _, c := range game.OpponentField.Deck.Cards {
 		oCards = append(oCards, dto.GameCard{CardId: uint(c.Id)})
 	}
+	yHand := make([]dto.Hand, 0, 7)
+	for _, c := range game.YourField.Hand.Cards {
+		yHand = append(yHand, dto.Hand{CardId: uint(c.Id)})
+	}
+	oHand := make([]dto.Hand, 0, 7)
+	for _, c := range game.OpponentField.Hand.Cards {
+		oHand = append(oHand, dto.Hand{CardId: uint(c.Id)})
+	}
 
 	dto := &dto.Game{
 		Fields: []dto.Field{
-			{Deck: dto.Deck{
-				GameCards: yCards,
-			}},
-			{Deck: dto.Deck{
-				GameCards: oCards,
-			}},
+			{
+				Deck: dto.Deck{GameCards: yCards},
+				Hand: yHand,
+			},
+			{
+				Deck: dto.Deck{GameCards: oCards},
+				Hand: oHand,
+			},
 		},
 	}
 
