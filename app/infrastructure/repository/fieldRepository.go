@@ -20,7 +20,7 @@ func NewFieldRepository() repository.FieldRepository {
 }
 
 func (fr *fieldRepository) Get() (*model.Field, error) {
-	dto := &dto.Field{Deck: dto.Deck{}}
+	dto := &dto.Field{Deck: []dto.Deck{}}
 	fr.db.First(dto)
 
 	return &model.Field{

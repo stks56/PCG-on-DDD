@@ -20,13 +20,13 @@ func NewGameRepository() repository.GameRepository {
 }
 
 func (gr *gameRepository) Insert(game *model.Game) error {
-	yCards := make([]dto.GameCard, 0, 60)
+	yDeck := make([]dto.Deck, 0, 60)
 	for _, c := range game.YourField.Deck.Cards {
-		yCards = append(yCards, dto.GameCard{CardId: uint(c.Id)})
+		yDeck = append(yDeck, dto.Deck{CardId: uint(c.Id)})
 	}
-	oCards := make([]dto.GameCard, 0, 60)
+	oDeck := make([]dto.Deck, 0, 60)
 	for _, c := range game.OpponentField.Deck.Cards {
-		oCards = append(oCards, dto.GameCard{CardId: uint(c.Id)})
+		oDeck = append(oDeck, dto.Deck{CardId: uint(c.Id)})
 	}
 	yHand := make([]dto.Hand, 0, 7)
 	for _, c := range game.YourField.Hand.Cards {
@@ -40,11 +40,11 @@ func (gr *gameRepository) Insert(game *model.Game) error {
 	dto := &dto.Game{
 		Fields: []dto.Field{
 			{
-				Deck: dto.Deck{GameCards: yCards},
+				Deck: yDeck,
 				Hand: yHand,
 			},
 			{
-				Deck: dto.Deck{GameCards: oCards},
+				Deck: oDeck,
 				Hand: oHand,
 			},
 		},

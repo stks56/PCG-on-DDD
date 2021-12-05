@@ -34,7 +34,7 @@ func migrate() {
 		&dto.Card{},
 		&dto.Game{},
 		&dto.Field{},
-		&dto.GameCard{},
+		&dto.Deck{},
 		&dto.BattleField{},
 		&dto.Bench{},
 		&dto.Side{},
