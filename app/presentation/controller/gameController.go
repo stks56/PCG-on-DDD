@@ -11,7 +11,7 @@ import (
 
 type GameControlller struct{}
 
-func (cc GameControlller) Start() echo.HandlerFunc {
+func (gc GameControlller) Start() echo.HandlerFunc {
 	return func(c echo.Context) error {
 		// デッキ作成ができるまでプリセットを使う
 		yourDeck := model.NewPresetDeck()
@@ -25,6 +25,6 @@ func (cc GameControlller) Start() echo.HandlerFunc {
 			return c.JSON(http.StatusInternalServerError, "Failed insert db")
 		}
 
-		return c.JSON(http.StatusOK, nil)
+		return c.JSON(http.StatusOK, "success")
 	}
 }
