@@ -1,5 +1,5 @@
 package model
 
 type Trash struct {
-	Cards *[]Card
+	Cards []Card
 }
