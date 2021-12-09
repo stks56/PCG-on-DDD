@@ -11,6 +11,11 @@ import (
 
 type GameControlller struct{}
 
+type initPokemonJson struct {
+	BattleField int   `json:"battle_field"`
+	Benches     []int `json:"benches"`
+}
+
 func (gc GameControlller) Start() echo.HandlerFunc {
 	return func(c echo.Context) error {
 		// デッキ作成ができるまでプリセットを使う
@@ -30,6 +35,11 @@ func (gc GameControlller) Start() echo.HandlerFunc {
 }
 func (gc GameControlller) InitPokemon() echo.HandlerFunc {
 	return func(c echo.Context) error {
-		return c.JSON(http.StatusOK, "")
+		request := &initPokemonJson{}
+		if err := c.Bind(request); err != nil {
+			return c.JSON(http.StatusInternalServerError, "Invalid json")
+		}
+
+		return c.JSON(http.StatusOK, request)
 	}
 }
