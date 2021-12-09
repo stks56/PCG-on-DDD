@@ -28,3 +28,8 @@ func (gc GameControlller) Start() echo.HandlerFunc {
 		return c.JSON(http.StatusOK, game.YourField.Hand)
 	}
 }
+func (gc GameControlller) InitPokemon() echo.HandlerFunc {
+	return func(c echo.Context) error {
+		return c.JSON(http.StatusOK, "")
+	}
+}

@@ -27,6 +27,7 @@ func main() {
 	{
 		gameCtrl := controller.GameControlller{}
 		game.POST("/start", gameCtrl.Start())
+		game.POST("/init_pokemon", gameCtrl.InitPokemon())
 
 		fieldCtrl := controller.FieldController{}
 		game.GET("/field", fieldCtrl.Show())
