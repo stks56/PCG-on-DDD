@@ -40,6 +40,9 @@ func (gc GameControlller) InitPokemon() echo.HandlerFunc {
 			return c.JSON(http.StatusInternalServerError, "Invalid json")
 		}
 
+		gr := repository.NewGameRepository()
+		game, _ := gr.Get()
+
 		return c.JSON(http.StatusOK, request)
 	}
 }
