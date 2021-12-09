@@ -4,7 +4,7 @@ type Field struct {
 	Id          uint `gorm:"primaryKey"`
 	GameId      uint
 	Deck        []Deck
-	BattleField []BattleField
+	BattleField BattleField
 	Bench       []Bench
 	Side        []Side
 	Trash       []Trash
