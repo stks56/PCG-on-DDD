@@ -25,6 +25,6 @@ func (gc GameControlller) Start() echo.HandlerFunc {
 			return c.JSON(http.StatusInternalServerError, "Failed insert db")
 		}
 
-		return c.JSON(http.StatusOK, "success")
+		return c.JSON(http.StatusOK, game.YourField.Hand)
 	}
 }
