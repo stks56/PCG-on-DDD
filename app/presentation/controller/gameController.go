@@ -33,6 +33,7 @@ func (gc GameControlller) Start() echo.HandlerFunc {
 		return c.JSON(http.StatusOK, game.YourField.Hand)
 	}
 }
+
 func (gc GameControlller) InitPokemon() echo.HandlerFunc {
 	return func(c echo.Context) error {
 		request := &initPokemonJson{}
@@ -45,6 +46,10 @@ func (gc GameControlller) InitPokemon() echo.HandlerFunc {
 		gu := usecase.GameUsecase{GameModel: game}
 		gu.InitPokemon(request.BattleField, request.Benches)
 
-		return c.JSON(http.StatusOK, request)
+		if err := gr.Insert(game); err != nil {
+			return c.JSON(http.StatusInternalServerError, "Failed insert db")
+		}
+
+		return c.JSON(http.StatusOK, game.YourField)
 	}
 }
