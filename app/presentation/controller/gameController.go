@@ -42,6 +42,8 @@ func (gc GameControlller) InitPokemon() echo.HandlerFunc {
 
 		gr := repository.NewGameRepository()
 		game, _ := gr.Get()
+		gu := usecase.GameUsecase{GameModel: game}
+		gu.InitPokemon(request.BattleField, request.Benches)
 
 		return c.JSON(http.StatusOK, request)
 	}
