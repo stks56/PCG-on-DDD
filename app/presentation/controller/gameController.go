@@ -22,7 +22,7 @@ func (gc GameControlller) Start() echo.HandlerFunc {
 		yourDeck := model.NewPresetDeck()
 		opponentDeck := model.NewPresetDeck()
 
-		gu := usecase.GameUsecase{GameModel: &model.Game{}}
+		gu := usecase.StartGameUsecase{GameModel: &model.Game{}}
 		game := gu.StartGame(yourDeck, opponentDeck)
 
 		gr := repository.NewGameRepository()
@@ -43,7 +43,7 @@ func (gc GameControlller) InitPokemon() echo.HandlerFunc {
 
 		gr := repository.NewGameRepository()
 		game, _ := gr.Get()
-		gu := usecase.GameUsecase{GameModel: game}
+		gu := usecase.StartGameUsecase{GameModel: game}
 		gu.InitPokemon(request.BattleField, request.Benches)
 
 		if err := gr.Insert(game); err != nil {

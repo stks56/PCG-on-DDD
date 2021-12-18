@@ -5,11 +5,11 @@ import (
 	"time"
 )
 
-type GameUsecase struct {
+type StartGameUsecase struct {
 	GameModel *model.Game
 }
 
-func (gu *GameUsecase) StartGame(yourDeck, opponentDeck *model.Deck) *model.Game {
+func (gu *StartGameUsecase) StartGame(yourDeck, opponentDeck *model.Deck) *model.Game {
 	gu.GameModel.YourField = &model.Field{}
 	gu.GameModel.OpponentField = &model.Field{}
 	gu.GameModel.YourField.Deck = yourDeck
@@ -29,7 +29,7 @@ func (gu *GameUsecase) StartGame(yourDeck, opponentDeck *model.Deck) *model.Game
 	return gu.GameModel
 }
 
-func (gu *GameUsecase) InitPokemon(battleFieldPokemonId int, benchesPokemonId []int) *model.Game {
+func (gu *StartGameUsecase) InitPokemon(battleFieldPokemonId int, benchesPokemonId []int) *model.Game {
 	gu.GameModel.YourField.BattleField.SetReverse(&model.Card{Id: battleFieldPokemonId})
 	for _, pokemonId := range benchesPokemonId {
 		gu.GameModel.YourField.Bench.Set(&model.Card{Id: pokemonId})
