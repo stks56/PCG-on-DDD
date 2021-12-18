@@ -31,5 +31,8 @@ func (gu *GameUsecase) StartGame(yourDeck, opponentDeck *model.Deck) *model.Game
 
 func (gu *GameUsecase) InitPokemon(battleFieldPokemonId int, benchesPokemonId []int) *model.Game {
 	gu.GameModel.YourField.BattleField.SetReverse(&model.Card{Id: battleFieldPokemonId})
+	for _, pokemonId := range benchesPokemonId {
+		gu.GameModel.YourField.Bench.Set(&model.Card{Id: pokemonId})
+	}
 	return gu.GameModel
 }
