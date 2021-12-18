@@ -43,6 +43,9 @@ func (gc GameControlller) InitPokemon() echo.HandlerFunc {
 
 		gr := repository.NewGameRepository()
 		game, _ := gr.Get()
+		if status := game.Status.String(); status != "Started" {
+			return c.JSON(http.StatusBadRequest, "Invalid game status. Current game status is "+status)
+		}
 		gu := usecase.StartGameUsecase{GameModel: game}
 		gu.InitPokemon(request.BattleField, request.Benches)
 

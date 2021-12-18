@@ -5,6 +5,7 @@ import "stks56/PCG-on-DDD/app/domain/model"
 type Game struct {
 	Id     uint `gorm:"primaryKey"`
 	Fields []Field
+	Status uint8 `gorm:"not null"`
 }
 
 func (game *Game) ConvertToModel() *model.Game {

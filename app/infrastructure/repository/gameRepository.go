@@ -48,6 +48,7 @@ func (gr *gameRepository) Insert(game *model.Game) error {
 				Hand: oHand,
 			},
 		},
+		Status: uint8(game.Status),
 	}
 
 	tx := gr.db.Create(dto)
