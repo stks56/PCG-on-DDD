@@ -13,8 +13,6 @@ type Card struct {
 	Hand        []Hand
 }
 
-type Cards []Card
-
 func (card *Card) ConvertToModel() *model.Card {
 	return &model.Card{
 		Id:   int(card.Id),

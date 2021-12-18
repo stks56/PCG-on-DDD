@@ -2,17 +2,17 @@ package seed
 
 import "stks56/PCG-on-DDD/app/infrastructure/dto"
 
-var Cards = dto.Cards{
+var Cards = []dto.Card{
 	{
-		ID:   1,
+		Id:   1,
 		Name: "メッソン",
 	},
 	{
-		ID:   2,
+		Id:   2,
 		Name: "ジメレオン",
 	},
 	{
-		ID:   3,
+		Id:   3,
 		Name: "インテレオン",
 	},
 }
